@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:he/he.dart';
 
@@ -32,6 +34,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final LoadingController _controller = LoadingController();
+
+  late Timer timer;
+
+  @override
+  void initState() {
+    super.initState();
+    timer = Timer.periodic(Duration(milliseconds: 100), (_) {
+      _controller.changeVal(_controller.value.value + 1);
+      if (_controller.value.value >= 100) {
+        _controller.repeat();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,15 +63,22 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          spacing: 20,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("Taichi basic"),
-            Taichi.basic(),
-            Text("Taichi complex"),
-            Taichi.complex(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            spacing: 20,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Taichi basic"),
+              Taichi.basic(),
+              Text("Taichi complex"),
+              Taichi.complex(),
+              Text("Taichi paint basic"),
+              Taichi.paintBasic(),
+              Text("Taichi progress bar"),
+              TaichiProgressBar(controller: _controller),
+            ],
+          ),
         ),
       ),
     );
