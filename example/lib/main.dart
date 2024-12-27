@@ -64,22 +64,34 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: Wrap(
             spacing: 20,
-            mainAxisAlignment: MainAxisAlignment.center,
+            runSpacing: 20,
             children: <Widget>[
-              Text("Taichi basic"),
-              Taichi.basic(),
-              Text("Taichi complex"),
-              Taichi.complex(),
-              Text("Taichi paint basic"),
-              Taichi.paintBasic(),
-              Text("Taichi progress bar"),
-              TaichiProgressBar(controller: _controller),
+              _wrapper("1. Taichi basic", Taichi.basic()),
+              _wrapper("2. Taichi complex", Taichi.complex(size: 200)),
+              _wrapper("3. Taichi paint basic", Taichi.paintBasic()),
+              _wrapper("4. Taichi progress bar(left to right)",
+                  TaichiProgressBar(controller: _controller)),
+              _wrapper("5. Taichi progress bar(middle to side)",
+                  TaichiProgressBar2(controller: _controller)),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _wrapper(String text, Widget child) {
+    return SizedBox(
+      width: 300,
+      height: 300,
+      child: Column(
+        spacing: 20,
+        children: [
+          Text(text),
+          child,
+        ],
       ),
     );
   }
