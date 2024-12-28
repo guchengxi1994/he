@@ -1,6 +1,6 @@
 name: he
 description: "A simple UI library for Flutter."
-version: 0.0.2
+version: 0.0.2+1
 homepage: https://github.com/guchengxi1994/he
 
 environment:

@@ -57,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("paint once");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -75,6 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   TaichiProgressBar(controller: _controller)),
               _wrapper("5. Taichi progress bar(middle to side)",
                   TaichiProgressBar2(controller: _controller)),
+              _wrapper("6. Bagua", EightTrigrams(size: 300)),
+              _wrapper("7. Animated bagua", AnimatedEightTrigrams(size: 300)),
             ],
           ),
         ),
@@ -84,8 +87,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _wrapper(String text, Widget child) {
     return SizedBox(
-      width: 300,
-      height: 300,
+      width: 400,
+      height: 400,
       child: Column(
         spacing: 20,
         children: [

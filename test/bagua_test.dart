@@ -12,7 +12,7 @@ class App extends StatelessWidget {
         width: 800,
         height: 800,
         child: CustomPaint(
-          painter: EightTrigrams(),
+          painter: EightTrigramsPainter(),
           child: Center(
             child: Taichi.basic(size: 400),
           ),
