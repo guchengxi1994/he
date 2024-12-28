@@ -57,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("paint once");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -64,22 +65,36 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: Wrap(
             spacing: 20,
-            mainAxisAlignment: MainAxisAlignment.center,
+            runSpacing: 20,
             children: <Widget>[
-              Text("Taichi basic"),
-              Taichi.basic(),
-              Text("Taichi complex"),
-              Taichi.complex(),
-              Text("Taichi paint basic"),
-              Taichi.paintBasic(),
-              Text("Taichi progress bar"),
-              TaichiProgressBar(controller: _controller),
+              _wrapper("1. Taichi basic", Taichi.basic()),
+              _wrapper("2. Taichi complex", Taichi.complex(size: 200)),
+              _wrapper("3. Taichi paint basic", Taichi.paintBasic()),
+              _wrapper("4. Taichi progress bar(left to right)",
+                  TaichiProgressBar(controller: _controller)),
+              _wrapper("5. Taichi progress bar(middle to side)",
+                  TaichiProgressBar2(controller: _controller)),
+              _wrapper("6. Bagua", EightTrigrams(size: 300)),
+              _wrapper("7. Animated bagua", AnimatedEightTrigrams(size: 300)),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _wrapper(String text, Widget child) {
+    return SizedBox(
+      width: 400,
+      height: 400,
+      child: Column(
+        spacing: 20,
+        children: [
+          Text(text),
+          child,
+        ],
       ),
     );
   }

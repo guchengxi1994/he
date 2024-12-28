@@ -3,6 +3,7 @@ import 'package:he/src/common/loading_controller.dart';
 
 import 'basic_paint.dart';
 
+/// [ProgressbarType.left2right]
 class TaichiProgressBar extends StatelessWidget {
   const TaichiProgressBar(
       {super.key,
