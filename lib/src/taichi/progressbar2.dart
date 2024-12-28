@@ -12,7 +12,8 @@ class TaichiProgressBar2 extends StatelessWidget {
       this.size = 30,
       this.backgroundColor = const Color.fromARGB(255, 223, 222, 222),
       this.radius = 16,
-      this.label}) {
+      this.label,
+      this.labelBgColor = const Color.fromARGB(255, 176, 232, 243)}) {
     assert(size < lineLength);
   }
 
@@ -22,6 +23,7 @@ class TaichiProgressBar2 extends StatelessWidget {
   final Color backgroundColor;
   final double radius;
   final String? label;
+  final Color labelBgColor;
 
   @override
   Widget build(BuildContext context) {
@@ -48,14 +50,21 @@ class TaichiProgressBar2 extends StatelessWidget {
         child: ValueListenableBuilder(
             valueListenable: controller.value,
             builder: (context, value, child) {
+              var distance = (value / 100) * (lineLength - size);
               return Stack(
                 children: [
+                  Center(
+                    child: Container(
+                      width: distance,
+                      decoration: BoxDecoration(color: labelBgColor),
+                    ),
+                  ),
                   Center(
                     child: _TaichiSplitWidget(
                       progress: value,
                       taichiSize: size,
                       width: lineLength,
-                      bgColor: backgroundColor,
+                      bgColor: labelBgColor,
                     ),
                   ),
                   Center(
