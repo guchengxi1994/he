@@ -78,6 +78,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   TaichiProgressBar2(controller: _controller)),
               _wrapper("6. Bagua", EightTrigrams(size: 300)),
               _wrapper("7. Animated bagua", AnimatedEightTrigrams(size: 300)),
+              _wrapper(
+                  "8. Code rain",
+                  CodeRain(
+                    controller: CodeRainController(count: 5, stringLength: 7),
+                  )),
             ],
           ),
         ),

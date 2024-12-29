@@ -4,6 +4,10 @@
 
 [prewiew](https://guchengxi1994.github.io/he/)
 
+### changelog
+[changelogs](./CHANGELOG.md)
+
+### example
 ![example](image.gif)
 
 
