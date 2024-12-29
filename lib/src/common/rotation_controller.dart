@@ -22,7 +22,7 @@ class RotationController {
 
   void start() {
     _timer = Timer.periodic(Duration(milliseconds: 100), (timer) {
-      rotationNotifier.value += 0.1;
+      rotationNotifier.value += 1;
     });
   }
 
