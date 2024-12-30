@@ -1,0 +1,1 @@
+**this is copied and modified from https://github.com/CarGuo/gsy_flutter_demo/blob/master/lib/widget/tear_text_demo_page.dart**

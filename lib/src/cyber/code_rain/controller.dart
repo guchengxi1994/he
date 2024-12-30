@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:he/src/code_rain/char_set.dart';
-import 'package:he/src/code_rain/state.dart';
+import 'package:he/src/cyber/code_rain/char_set.dart';
+import 'package:he/src/cyber/code_rain/state.dart';
 
 enum Direction { leftToRight, rightToLeft, topToBottom, bottomToTop }
 

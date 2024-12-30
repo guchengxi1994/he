@@ -83,6 +83,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   CodeRain(
                     controller: CodeRainController(count: 5, stringLength: 7),
                   )),
+              _wrapper(
+                  "8. Tear text",
+                  TearText(
+                    fontSize: 48,
+                    controller: TearTextController(
+                      origin: "I love flutter",
+                      target: " I love China ",
+                    ),
+                  )),
             ],
           ),
         ),
