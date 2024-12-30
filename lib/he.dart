@@ -6,5 +6,7 @@ export 'src/taichi/progressbar2.dart';
 export 'src/common/loading_controller.dart';
 export 'src/taichi/eight_trigrams.dart'
     show EightTrigrams, AnimatedEightTrigrams;
-export 'src/code_rain/code_rain.dart';
-export 'src/code_rain/controller.dart' show CodeRainController;
+export 'src/cyber/code_rain/code_rain.dart';
+export 'src/cyber/code_rain/controller.dart' show CodeRainController;
+export 'src/cyber/tear_text/tear_text.dart' show TearText;
+export 'src/cyber/tear_text/controller.dart' show TearTextController;

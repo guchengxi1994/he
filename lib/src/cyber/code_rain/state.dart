@@ -68,11 +68,19 @@ class CodeRainState {
   }
 
   CodeRainState init(int count, int stringLength, double bound) {
+    List<int> current = [];
     var texts = List.generate(count, (index) {
+      int maxTimes = 20;
+      int p = getRandomPosition(bound);
+      while (current.contains(p) && maxTimes > 0) {
+        maxTimes--;
+        p = getRandomPosition(bound);
+      }
+
       return AnimatedTextState(
           text: CharSetUtil.getRandom(stringLength),
           offset: -stringLength * 16 * (1 + Random().nextDouble()),
-          position: getRandomPosition(bound),
+          position: p,
           index: index);
     });
     return CodeRainState(texts: texts);

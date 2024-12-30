@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:he/src/code_rain/controller.dart';
+import 'package:he/src/cyber/code_rain/controller.dart';
 
 import 'state.dart';
 
@@ -70,35 +70,35 @@ class TextWidget extends StatelessWidget {
   }
 
   Widget _lastCharWrapper(String s) {
+    // ignore: no_leading_underscores_for_local_identifiers
+    final _style = style.copyWith(
+      fontWeight: FontWeight.bold,
+      foreground: Paint()
+        ..style = PaintingStyle.fill
+        ..strokeWidth = 5
+        ..color = Colors.white,
+      shadows: const [
+        Shadow(
+          blurRadius: 10,
+          color: Colors.white,
+          offset: Offset(0, 0),
+        ),
+        Shadow(
+          blurRadius: 20,
+          color: Colors.white30,
+          offset: Offset(0, 0),
+        ),
+      ],
+    );
+
     return SizedBox(
       width: 16,
       height: 16,
-      child: Stack(
-        children: [
-          Center(
-            child: Container(
-              width: 3,
-              height: 3,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.greenAccent.withValues(alpha: 0.6),
-                    blurRadius: 5,
-                    spreadRadius: 5,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Center(
-            child: Text(
-              s,
-              style: style,
-            ),
-          )
-        ],
+      child: Center(
+        child: Text(
+          s,
+          style: _style,
+        ),
       ),
     );
   }

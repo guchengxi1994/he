@@ -1,6 +1,6 @@
 **`he` is `和` in Chinese, which means `peace` or `harmony`.**
 
-> **This is a simple UI library for fun, paint some interesting things in pure flutter (only use `Widget` and `CustomPaint`)**
+> **This is a simple UI library for fun, paint some interesting things in pure flutter**
 
 [prewiew](https://guchengxi1994.github.io/he/)
 
