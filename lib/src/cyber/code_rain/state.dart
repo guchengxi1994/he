@@ -51,9 +51,9 @@ class CodeRainState {
     return texts.any((element) => element.offset + 16 * length >= -16);
   }
 
-  int getRandomPosition(double bound) {
+  int getRandomPosition(double bound, {List<int> excluded = const []}) {
     int k = bound ~/ 16;
-    List<int> current = texts.map((e) => e.position).toList();
+    List<int> current = texts.map((e) => e.position).toList()..addAll(excluded);
     List<int> reserved = List<int>.generate(k, (index) => index)
       ..retainWhere((v) => !current.contains(v))
       ..shuffle();
@@ -70,13 +70,8 @@ class CodeRainState {
   CodeRainState init(int count, int stringLength, double bound) {
     List<int> current = [];
     var texts = List.generate(count, (index) {
-      int maxTimes = 20;
-      int p = getRandomPosition(bound);
-      while (current.contains(p) && maxTimes > 0) {
-        maxTimes--;
-        p = getRandomPosition(bound);
-      }
-
+      int p = getRandomPosition(bound, excluded: current);
+      current.add(p);
       return AnimatedTextState(
           text: CharSetUtil.getRandom(stringLength),
           offset: -stringLength * 16 * (1 + Random().nextDouble()),
