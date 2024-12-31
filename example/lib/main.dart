@@ -92,6 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       target: " I love China ",
                     ),
                   )),
+              _wrapper("9. Star map", StarMap(viewWindowWidth: 400))
             ],
           ),
         ),
