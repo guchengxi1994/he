@@ -10,3 +10,4 @@ export 'src/cyber/code_rain/code_rain.dart';
 export 'src/cyber/code_rain/controller.dart' show CodeRainController;
 export 'src/cyber/tear_text/tear_text.dart' show TearText;
 export 'src/cyber/tear_text/controller.dart' show TearTextController;
+export 'src/star_map/star_map.dart';
