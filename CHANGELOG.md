@@ -1,3 +1,7 @@
+## 0.0.2+2
+
+* add animated tile
+
 ## 0.0.2+1
 
 * add bagua and animated bagua
