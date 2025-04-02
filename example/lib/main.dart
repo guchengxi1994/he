@@ -92,7 +92,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       target: " I love China ",
                     ),
                   )),
-              _wrapper("9. Star map", StarMap(viewWindowWidth: 400))
+              _wrapper("9. Star map", StarMap(viewWindowWidth: 400)),
+              _wrapper(
+                  "10. animated tile",
+                  AnimatedTile(
+                    title: 'Test tile',
+                    description: 'This is a test tile',
+                    color: Colors.blue,
+                    icon: Icon(Icons.add),
+                  ))
             ],
           ),
         ),
