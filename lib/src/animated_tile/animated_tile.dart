@@ -2,17 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:he/src/animated_tile/tile_state.dart';
 
 class AnimatedTile extends StatefulWidget {
-  const AnimatedTile({
-    super.key,
-    required this.title,
-    this.description,
-    this.color = Colors.blueAccent,
-    this.icon = const Icon(Icons.abc),
-  });
+  const AnimatedTile(
+      {super.key,
+      required this.title,
+      this.description,
+      this.color = Colors.blueAccent,
+      this.icon = const Icon(Icons.abc),
+      this.height = 150,
+      this.width = 200,
+      this.onTap});
   final String title;
   final String? description;
   final Color color;
   final Widget icon;
+  final double width;
+  final double height;
+  final VoidCallback? onTap;
 
   @override
   State<AnimatedTile> createState() => _AnimatedTileState();
@@ -67,13 +72,12 @@ class _AnimatedTileState extends State<AnimatedTile> {
               ..rotateX(s.xRotation)
               ..rotateY(s.yRotation),
             child: GestureDetector(
-              onDoubleTap: () {
-                // 双击进入编辑模式
+              onTap: () {
+                widget.onTap?.call();
               },
-              onTap: () {},
               child: Container(
-                width: 200,
-                height: 150,
+                width: widget.width,
+                height: widget.height,
                 decoration: BoxDecoration(
                   color: widget.color,
                   borderRadius: BorderRadius.circular(20),
@@ -88,12 +92,6 @@ class _AnimatedTileState extends State<AnimatedTile> {
                 ),
                 child: Stack(
                   children: [
-                    // Center(
-                    //   child: Text(
-                    //     widget.dataset.name ?? "Unknown",
-                    //     style: TextStyle(fontSize: 20, color: Colors.white),
-                    //   ),
-                    // ),
                     AnimatedAlign(
                       duration: Duration(milliseconds: 300),
                       alignment:
@@ -109,7 +107,6 @@ class _AnimatedTileState extends State<AnimatedTile> {
                         ),
                       ),
                     ),
-
                     Positioned(
                       left: 10,
                       top: 40,

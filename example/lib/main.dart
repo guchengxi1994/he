@@ -96,10 +96,18 @@ class _MyHomePageState extends State<MyHomePage> {
               _wrapper(
                   "10. animated tile",
                   AnimatedTile(
+                    onTap: () {
+                      debugPrint("clicked");
+                    },
                     title: 'Test tile',
                     description: 'This is a test tile',
+                    width: 300,
+                    height: 200,
                     color: Colors.blue,
-                    icon: Icon(Icons.add),
+                    icon: Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
                   ))
             ],
           ),
