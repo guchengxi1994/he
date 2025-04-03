@@ -12,3 +12,5 @@ export 'src/cyber/tear_text/tear_text.dart' show TearText;
 export 'src/cyber/tear_text/controller.dart' show TearTextController;
 export 'src/star_map/star_map.dart';
 export 'src/animated_tile/animated_tile.dart';
+export 'src/layout/simple_layout.dart';
+export 'src/layout/sidebar_item.dart' show SidebarItem;
