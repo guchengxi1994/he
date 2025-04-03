@@ -1,3 +1,7 @@
+## 0.0.2+3
+
+* add simple layout
+
 ## 0.0.2+2
 
 * add animated tile

@@ -106,69 +106,75 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _taichi() {
-    return Wrap(
-      spacing: 20,
-      runSpacing: 20,
-      children: [
-        _wrapper("1. Taichi basic", Taichi.basic()),
-        _wrapper("2. Taichi complex", Taichi.complex(size: 200)),
-        _wrapper("3. Taichi paint basic", Taichi.paintBasic()),
-        _wrapper("4. Taichi progress bar(left to right)",
-            TaichiProgressBar(controller: _controller)),
-        _wrapper("5. Taichi progress bar(middle to side)",
-            TaichiProgressBar2(controller: _controller)),
-        _wrapper("6. Bagua", EightTrigrams(size: 300)),
-        _wrapper("7. Animated bagua", AnimatedEightTrigrams(size: 300)),
-      ],
+    return SingleChildScrollView(
+      child: Wrap(
+        spacing: 20,
+        runSpacing: 20,
+        children: [
+          _wrapper("1. Taichi basic", Taichi.basic()),
+          _wrapper("2. Taichi complex", Taichi.complex(size: 200)),
+          _wrapper("3. Taichi paint basic", Taichi.paintBasic()),
+          _wrapper("4. Taichi progress bar(left to right)",
+              TaichiProgressBar(controller: _controller)),
+          _wrapper("5. Taichi progress bar(middle to side)",
+              TaichiProgressBar2(controller: _controller)),
+          _wrapper("6. Bagua", EightTrigrams(size: 300)),
+          _wrapper("7. Animated bagua", AnimatedEightTrigrams(size: 300)),
+        ],
+      ),
     );
   }
 
   Widget _others() {
-    return Wrap(
-      spacing: 20,
-      runSpacing: 20,
-      children: [
-        _wrapper(
-            "8. Code rain",
-            CodeRain(
-              controller: CodeRainController(count: 5, stringLength: 7),
-            )),
-        _wrapper(
-            "8. Tear text",
-            TearText(
-              fontSize: 48,
-              controller: TearTextController(
-                origin: "I love flutter",
-                target: " I love China ",
-              ),
-            )),
-        _wrapper("9. Star map", StarMap(viewWindowWidth: 400)),
-      ],
+    return SingleChildScrollView(
+      child: Wrap(
+        spacing: 20,
+        runSpacing: 20,
+        children: [
+          _wrapper(
+              "8. Code rain",
+              CodeRain(
+                controller: CodeRainController(count: 5, stringLength: 7),
+              )),
+          _wrapper(
+              "8. Tear text",
+              TearText(
+                fontSize: 48,
+                controller: TearTextController(
+                  origin: "I love flutter",
+                  target: " I love China ",
+                ),
+              )),
+          _wrapper("9. Star map", StarMap(viewWindowWidth: 400)),
+        ],
+      ),
     );
   }
 
   Widget _tiles() {
-    return Wrap(
-      spacing: 20,
-      runSpacing: 20,
-      children: [
-        _wrapper(
-            "10. animated tile",
-            AnimatedTile(
-              onTap: () {
-                debugPrint("clicked");
-              },
-              title: 'Test tile',
-              description: 'This is a test tile',
-              width: 300,
-              height: 200,
-              color: Colors.blue,
-              icon: Icon(
-                Icons.add,
-                color: Colors.white,
-              ),
-            ))
-      ],
+    return SingleChildScrollView(
+      child: Wrap(
+        spacing: 20,
+        runSpacing: 20,
+        children: [
+          _wrapper(
+              "10. animated tile",
+              AnimatedTile(
+                onTap: () {
+                  debugPrint("clicked");
+                },
+                title: 'Test tile',
+                description: 'This is a test tile',
+                width: 300,
+                height: 200,
+                color: Colors.blue,
+                icon: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
+              ))
+        ],
+      ),
     );
   }
 }
