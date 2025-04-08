@@ -64,30 +64,34 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: SimpleLayout(items: [
-        SidebarItem(
-          icon: const Icon(Icons.dataset, color: Colors.blueAccent),
-          iconInactive: const Icon(Icons.dataset),
-          index: 0,
-          title: "Taichi",
-        ),
-        SidebarItem(
-          icon: const Icon(Icons.rule, color: Colors.blueAccent),
-          iconInactive: const Icon(Icons.rule),
-          index: 1,
-          title: "Others",
-        ),
-        SidebarItem(
-          icon: const Icon(Icons.text_fields, color: Colors.blueAccent),
-          iconInactive: const Icon(Icons.text_fields),
-          index: 2,
-          title: "Tiles",
-        ),
-      ], children: [
-        _taichi(),
-        _others(),
-        _tiles()
-      ]),
+      body: SimpleLayout(
+          elevation: 10,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+          items: [
+            SidebarItem(
+              icon: const Icon(Icons.dataset, color: Colors.blueAccent),
+              iconInactive: const Icon(Icons.dataset),
+              index: 0,
+              title: "Taichi",
+            ),
+            SidebarItem(
+              icon: const Icon(Icons.rule, color: Colors.blueAccent),
+              iconInactive: const Icon(Icons.rule),
+              index: 1,
+              title: "Others",
+            ),
+            SidebarItem(
+              icon: const Icon(Icons.text_fields, color: Colors.blueAccent),
+              iconInactive: const Icon(Icons.text_fields),
+              index: 2,
+              title: "Tiles",
+            ),
+          ],
+          children: [
+            _taichi(),
+            _others(),
+            _tiles()
+          ]),
     );
   }
 

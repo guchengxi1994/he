@@ -3,19 +3,32 @@ import 'package:he/src/layout/layout_notifier.dart';
 import 'package:he/src/layout/sidebar_item.dart';
 
 class SimpleLayout extends StatelessWidget {
-  SimpleLayout({super.key, required this.items, required this.children})
+  SimpleLayout(
+      {super.key,
+      required this.items,
+      required this.children,
+      this.decoration,
+      this.elevation = 0,
+      this.padding = 10,
+      this.backgroundColor = Colors.white})
       : assert(items.length == children.length);
   final List<SidebarItem> items;
   final List<Widget> children;
+  final Decoration? decoration;
+  final double elevation;
+  final double padding;
+  final Color backgroundColor;
 
   final LayoutNotifier notifier = LayoutNotifier(0);
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: notifier,
-        builder: (c, s, _) {
-          return Row(
+      valueListenable: notifier,
+      builder: (c, s, _) {
+        return Container(
+          color: Colors.white,
+          child: Row(
             children: [
               Padding(
                 padding: EdgeInsets.all(10),
@@ -38,14 +51,24 @@ class SimpleLayout extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: PageView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: notifier.controller,
-                  children: children,
-                ),
-              ),
+                  child: Padding(
+                padding: EdgeInsets.all(padding),
+                child: Material(
+                    borderRadius: BorderRadius.circular(10),
+                    elevation: elevation,
+                    child: Container(
+                      decoration: decoration,
+                      child: PageView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        controller: notifier.controller,
+                        children: children,
+                      ),
+                    )),
+              )),
             ],
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }
