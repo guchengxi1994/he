@@ -33,7 +33,7 @@ class TearTextController {
   late String currentText;
 
   late StreamController<TearTextState> streamController =
-      StreamController<TearTextState>();
+      StreamController<TearTextState>.broadcast();
 
   Stream<TearTextState> get stream => streamController.stream;
 
