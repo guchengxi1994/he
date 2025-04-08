@@ -23,7 +23,7 @@ class CodeRainController {
   final double speed;
 
   late StreamController<CodeRainState> streamController =
-      StreamController<CodeRainState>();
+      StreamController<CodeRainState>.broadcast();
 
   Stream<CodeRainState> get stream => streamController.stream;
 

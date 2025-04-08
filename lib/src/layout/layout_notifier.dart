@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 class LayoutNotifier extends ValueNotifier<int> {
   LayoutNotifier(super.value);
 
-  late final PageController controller = PageController()
-    ..addListener(() {
-      value = controller.page!.round();
-    });
+  late final PageController controller = PageController();
 
   void change(int v) {
     if (value == v) return;
