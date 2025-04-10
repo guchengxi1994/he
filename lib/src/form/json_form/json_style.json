@@ -1,0 +1,63 @@
+{
+    "form-name": "form name or null",
+    "width": 400,
+    "height": 600,
+    "items": [
+        {
+            "type": "title",
+            "style": "size:16,bold:true;color:#000000",
+            "text": "title name",
+            "align": "center",
+            "children": [],
+            "uniqueId": null
+        },
+        {
+            "type": "text",
+            "style": "size:14,bold:true;color:#000000",
+            "text": "text name",
+            "align": "left",
+            "children": [],
+            "uniqueId": null
+        },
+        {
+            "type": "input",
+            "style": null,
+            "text": "hint text",
+            "align": null,
+            "children": [],
+            "uniqueId": "input 1"
+        },
+        {
+            "type": "dropdown",
+            "style": null,
+            "text": "item1;item2;item3",
+            "align": null,
+            "children": [],
+            "uniqueId": "dropdown 1"
+        },
+        {
+            "type": "row",
+            "style": null,
+            "text": null,
+            "align": null,
+            "children": [
+                {
+                    "type": "text",
+                    "style": "size:14,bold:true;color:#000000",
+                    "text": "text name",
+                    "align": "left",
+                    "children": [],
+                    "uniqueId": null
+                },
+                {
+                    "type": "input",
+                    "style": null,
+                    "text": "hint text",
+                    "align": null,
+                    "children": [],
+                    "uniqueId": "input 2"
+                }
+            ]
+        }
+    ]
+}

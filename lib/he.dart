@@ -14,3 +14,4 @@ export 'src/star_map/star_map.dart';
 export 'src/animated_tile/animated_tile.dart';
 export 'src/layout/simple_layout.dart';
 export 'src/layout/sidebar_item.dart' show SidebarItem;
+export 'src/form/forms.dart';

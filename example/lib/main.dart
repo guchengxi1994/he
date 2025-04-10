@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:he/he.dart';
@@ -86,11 +87,18 @@ class _MyHomePageState extends State<MyHomePage> {
               index: 2,
               title: "Tiles",
             ),
+            SidebarItem(
+              icon: const Icon(Icons.forum, color: Colors.blueAccent),
+              iconInactive: const Icon(Icons.forum),
+              index: 3,
+              title: "Forms",
+            ),
           ],
           children: [
             _taichi(),
             _others(),
-            _tiles()
+            _tiles(),
+            _form()
           ]),
     );
   }
@@ -115,15 +123,15 @@ class _MyHomePageState extends State<MyHomePage> {
         spacing: 20,
         runSpacing: 20,
         children: [
-          _wrapper("1. Taichi basic", Taichi.basic()),
-          _wrapper("2. Taichi complex", Taichi.complex(size: 200)),
-          _wrapper("3. Taichi paint basic", Taichi.paintBasic()),
-          _wrapper("4. Taichi progress bar(left to right)",
+          _wrapper("Taichi basic", Taichi.basic()),
+          _wrapper("Taichi complex", Taichi.complex(size: 200)),
+          _wrapper("Taichi paint basic", Taichi.paintBasic()),
+          _wrapper("Taichi progress bar(left to right)",
               TaichiProgressBar(controller: _controller)),
-          _wrapper("5. Taichi progress bar(middle to side)",
+          _wrapper("Taichi progress bar(middle to side)",
               TaichiProgressBar2(controller: _controller)),
-          _wrapper("6. Bagua", EightTrigrams(size: 300)),
-          _wrapper("7. Animated bagua", AnimatedEightTrigrams(size: 300)),
+          _wrapper("Bagua", EightTrigrams(size: 300)),
+          _wrapper("Animated bagua", AnimatedEightTrigrams(size: 300)),
         ],
       ),
     );
@@ -136,12 +144,12 @@ class _MyHomePageState extends State<MyHomePage> {
         runSpacing: 20,
         children: [
           _wrapper(
-              "8. Code rain",
+              "Code rain",
               CodeRain(
                 controller: CodeRainController(count: 5, stringLength: 7),
               )),
           _wrapper(
-              "8. Tear text",
+              "Tear text",
               TearText(
                 fontSize: 48,
                 controller: TearTextController(
@@ -149,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   target: " I love China ",
                 ),
               )),
-          _wrapper("9. Star map", StarMap(viewWindowWidth: 400)),
+          _wrapper("Star map", StarMap(viewWindowWidth: 400)),
         ],
       ),
     );
@@ -179,6 +187,86 @@ class _MyHomePageState extends State<MyHomePage> {
               ))
         ],
       ),
+    );
+  }
+
+  Widget _form() {
+    final testJson = """
+{
+    "form-name": "form name or null",
+    "width": 400,
+    "height": 600,
+    "items": [
+        {
+            "type": "title",
+            "style": "size:16;bold:true;color:#000000",
+            "text": "title name",
+            "align": "center",
+            "children": [],
+            "uniqueId": null
+        },
+        {
+            "type": "text",
+            "style": "size:14;bold:true;color:#FF0000",
+            "text": "text name",
+            "align": "left",
+            "children": [],
+            "uniqueId": null
+        },
+        {
+            "type": "input",
+            "style": null,
+            "text": "hint text",
+            "align": null,
+            "children": [],
+            "uniqueId": "input 1"
+        },
+        {
+            "type": "dropdown",
+            "style": null,
+            "text": "item1;item2;item3",
+            "align": null,
+            "children": [],
+            "uniqueId": "dropdown 1"
+        },
+        {
+            "type": "row",
+            "style": null,
+            "text": null,
+            "align": null,
+            "uniqueId": null,
+            "children": [
+                {
+                    "type": "text",
+                    "style": "size:14;bold:true;color:#000000",
+                    "text": "text name",
+                    "align": "left",
+                    "children": [],
+                    "uniqueId": null
+                },
+                {
+                    "type": "input",
+                    "style": null,
+                    "text": "hint text",
+                    "align": null,
+                    "children": [],
+                    "uniqueId": "input 2"
+                }
+            ]
+        }
+    ]
+}
+
+""";
+
+    final jsonModel = FormModel.fromJson(jsonDecode(testJson));
+
+    return Center(
+      child: JsonForm(
+          model: jsonModel,
+          onSubmit: (m) {
+            debugPrint(m.toString());
+          }),
     );
   }
 }
