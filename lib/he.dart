@@ -15,3 +15,4 @@ export 'src/animated_tile/animated_tile.dart';
 export 'src/layout/simple_layout.dart';
 export 'src/layout/sidebar_item.dart' show SidebarItem;
 export 'src/form/forms.dart';
+export 'src/extensions/extensions.dart';
